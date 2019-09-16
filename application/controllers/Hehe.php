@@ -18,16 +18,13 @@ class Hehe extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index($param)
+	public function index()
 	{
-        $data = array(
-            'hoo'=>$param,
-            'data'=> array(
-                'f'=>'1',
-                'g'=>'2'
-            )
-        );
-        $this->load->view('alfianiis',$data);
+        $this->load->helper('file');
+        $this->load->helper("url");
+        echo base_url()."application/controllers/data.csv";
+        $strong = file_get_contents('/mnt/b2c7efbf-ef52-437d-8ca7-e46ea581cbba/Me/Kuliah/CI-web/application/controllers/data.csv');
+        var_dump($strong);
 	}
 	public function hoho($param)
 	{
@@ -98,6 +95,7 @@ class Hehe extends CI_Controller {
                 61 => array('NRP' => '191132001', 'Nama' => 'ROSIHAN ANDIN PAMBUDI', 'Kode_MK' => 'SI15KK52', 'Kelas' => 'A'),
             )
         );
+
         $this->load->view('alfianiis',$data);
 	}
 }
