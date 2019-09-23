@@ -27,7 +27,12 @@ class Pertemuan3 extends CI_Controller {
         $this->load->helper(array('form', 'url'));
 
         $this->load->library('form_validation');
-
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required',
+                array('required' => 'You must provide a %s.')
+        );
+        $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required');
         if ($this->form_validation->run() == FALSE)
         {
                 $this->load->view('valid');
@@ -36,5 +41,36 @@ class Pertemuan3 extends CI_Controller {
         {
                 $this->load->view('suc');
         }
-	}
+    }
+    public function tugas(){
+        $this->load->helper(array('form', 'url'));
+
+        $this->load->library('form_validation');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('uas', 'UAS', 'required');
+        $this->form_validation->set_rules('uts', 'UTS', 'required',
+                array('required' => 'You must provide a %s.')
+        );
+        $this->form_validation->set_rules('tugas', 'TUGAS', 'required');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+                $this->load->view('valid2');
+        }
+        else
+        {
+            $uts = $this->input->post('uts');
+            $uas = $this->input->post('uas');
+            $tugas = $this->input->post('tugas');
+
+            $something1 = array(
+                'uts'=>$uts,
+                'uas'=>$uas,
+                'tugas'=>$tugas
+            );
+
+                $this->load->view('succ',$something1);
+
+        }
+    }
 }
