@@ -7,10 +7,8 @@
     </head>
     <body>
     <?php echo validation_errors(); 
-    
-        echo header('1COba','1');
     ?>
-        <form method="POST" action="<?php echo base_url('index.php/pertemuan7/inputData')?>">
+        <form method="POST" action="<?php echo base_url('index.php/pertemuan7')?>">
             Username : <br/>
             <input type="text" name="username" placeholder="username anda"><br/>
             Password : <br/>

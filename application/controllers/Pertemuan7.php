@@ -7,6 +7,8 @@ class Pertemuan7 extends CI_Controller {
         $this->load->helper(array('html','url',));
         $this->load->library(array('table','form_validation'));
 
+        
+
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required',
                 array('required' => 'You must provide a %s.')
@@ -19,12 +21,15 @@ class Pertemuan7 extends CI_Controller {
         }
         else
         {
-                $this->load->view('views7');
+            $this->load->database();
+            $this->load->model('user');
+
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            $email = $this->input->post('email');
+
+            $this->user->inputData($username,$password,$email);
         }
     }
-    public function inputData(){
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-        $email = $this->input->post('email');
-    }
+
 }
