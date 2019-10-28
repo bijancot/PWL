@@ -45,7 +45,7 @@ class Pertemuansepi extends CI_Controller {
         // $aa = $this->unit->result();
 
         $template = array(
-            'table_open'            => '<table border="1" cellpadding="4" cellspacing="0">',
+            'table_open'            => '<table border="0" cellpadding="4" cellspacing="0" class="table table-striped">',
         
             'thead_open'            => '<thead>',
             'thead_close'           => '</thead>',

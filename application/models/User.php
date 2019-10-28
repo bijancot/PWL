@@ -5,9 +5,8 @@ class User extends CI_Model {
     public $username;
     public $pass;
     public $nama;
-    public function inputData($username,$pass,$email){
-        
 
+    public function inputData($username,$pass,$email){
         $this->db->escape($username);
         $this->db->escape($pass);
         $this->db->escape($email);
@@ -17,4 +16,18 @@ class User extends CI_Model {
 
         echo $this->db->affected_rows();
     }
+
+    public function getData()
+    {
+            $query = $this->db->get('hoho');
+            return $query->result();
+    }
+    public function hapusData($id,$username)
+    {
+        $hoho = "DELETE FROM hoho where id=".$this->db->escape($id)."AND".$this->db->escape($username);
+        $this->db->query($hoho);
+
+        echo $this->db->affected_rows();
+    }
+    
 }

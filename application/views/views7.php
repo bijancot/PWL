@@ -17,5 +17,9 @@
             <input type="text" name="email" placeholder="email anda"><br/><br/>
             <input type="submit" name="masukkan" value="masukkan data">
         </form>
+
+        <h3>Lihat data :</h3>
+
+        <a href="<?php echo base_url('index.php/pertemuan7/tampilSemua')?>">Tampil data</a>
     </body>
 </html>
