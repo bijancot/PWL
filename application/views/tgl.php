@@ -58,5 +58,14 @@
         echo br(1);
         ?>
     </div>
+    <?php  
+    $data = array(
+        3  => 'http://example.com/news/article/2006/06/03/',
+        7  => 'http://example.com/news/article/2006/06/07/',
+        13 => 'http://example.com/news/article/2006/06/13/',
+        26 => 'http://example.com/news/article/2006/06/26/'
+    );
+    echo $this->calendar->generate(2006, 6, $data);
+    ?>
     </body>
 </html>

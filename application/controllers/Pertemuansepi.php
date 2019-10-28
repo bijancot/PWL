@@ -27,11 +27,11 @@ class Pertemuansepi extends CI_Controller {
     public function selectReg($region='Asia',$city='Jakarta'){
         $this->benchmark->mark('code_start');
         $this->load->helper(array('form','url','date','html'));
-        $this->load->library(array('unit_test', 'table'));
+        $this->load->library(array('unit_test', 'table', 'calendar'));
 
         $default = $region."/".$city;
 
-        $format = 'DATE_RFC822';
+        $format = 'DATE_W3C';
         $time1 = now($default);
         $time = standard_date($format, $time1);
 
