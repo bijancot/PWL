@@ -7,6 +7,9 @@ class Pertemuansepi extends CI_Controller {
         $this->benchmark->mark('code_start');
         $this->load->helper(array('form', 'url','date','language'));
 
+        $this->load->database();
+        $this->load->model('user');
+
         $default = $region."/".$city;
         $format = 'DATE_RFC822';
         $time = now($default);
@@ -42,7 +45,7 @@ class Pertemuansepi extends CI_Controller {
         
         $this->unit->run($test, $expected_result, $test_name,$notes);
 
-        // $aa = $this->unit->result();
+         $aa = $this->unit->result();
 
         $template = array(
             'table_open'            => '<table border="0" cellpadding="4" cellspacing="0" class="table table-striped">',
@@ -82,9 +85,13 @@ class Pertemuansepi extends CI_Controller {
             'time'=>$time,
             'def'=>$default,
             'eta'=>$eta,
-            // 'unitTest'=>$aa
+            //'unitTest'=>$aa
         );
+        
+        $this->load->database();
+        $this->load->model('hayo');
 
+        $this->hayo->inputTest($aa[0]['Test Name'],$aa[0]['Result'],$aa[0]['File Name'],$aa[0]['Notes']);
         $this->load->view('tgl',$data);
     }
 }
