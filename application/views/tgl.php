@@ -49,13 +49,20 @@
         //     $this->table->add_row($key['Test Name'],$key['Test Datatype'],$key['Expected Datatype'],$key['Result'],$key['File Name'],$key['Line Number'],$key['Notes']);
         // } 
         // echo $this->table->generate();
-
+        //$this->unit->set_test_items(array('test_name', 'result',));
+            // var_dump($unitTest[0]['Test Name']);
+            // var_dump($unitTest[0]['Result']);
+            // var_dump($unitTest[0]['File Name']);
+            // var_dump($unitTest[0]['Notes']);
         echo $this->unit->report();
         echo br(2);
         echo "time elapsed for generate this page is : ".$eta." second";
         echo br(1);
         echo "amount of usage memory to run this page is : ".$memo;
-        echo br(1);
+        echo br(2);
+        echo "Each test data stored to db, for posibble development, this project can integrate with date helper for mapping test result ";
+        echo br(2);
+        echo "&copy; 2019<a href=\"https://panjibaskoro.web.id/\">Panji Baskoro</a>";
         ?>
     </div>
     <?php  
